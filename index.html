@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check.CC</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Header Section */
+        header {
+            padding: 20px;
+            background-color: #333;
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            margin: 15px 10px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .discord-server {
+            background-color: #7289da;
+        }
+
+        .discord-server:hover {
+            background-color: #5b6eae;
+        }
+
+        .invite-bot {
+            background-color: #4caf50;
+        }
+
+        .invite-bot:hover {
+            background-color: #45a049;
+        }
+
+        .share-website {
+            background-color: #f4a261;
+        }
+
+        .share-website:hover {
+            background-color: #e59500;
+        }
+    </style>
+    <script>
+        function copyToClipboard() {
+            const text = "https://checkcc.vercel.app/";
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Website URL copied to clipboard!");
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="https://raw.githubusercontent.com/Yeeeter30/Check.CC/refs/heads/main/GreenCheck%20(1).gif" alt="Check.CC Logo">
+        <h1>Check.CC</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <p>Discover Check.CC, your ultimate Discord bot for server management and moderation!</p>
+
+        <!-- Join Discord Server Button -->
+        <a href="https://discord.gg/CAMTUC349g" class="button discord-server" target="_blank">
+            Join Discord Server
+        </a>
+
+        <!-- Invite Bot Button -->
+        <a href="https://discord.com/oauth2/authorize?client_id=1320071324428664893" class="button invite-bot" target="_blank">
+            Invite Bot
+        </a>
+
+        <!-- Share Website Button -->
+        <button class="button share-website" onclick="copyToClipboard()">
+            Share Website
+        </button>
+    </main>
+</body>
+</html>
