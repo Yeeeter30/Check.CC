@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bypass Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #333;
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        .bypass-button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .bypass-button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+    </style>
+    <script>
+        async function bypassLink() {
+            const linkInput = document.getElementById("link-input").value;
+            const messageElement = document.getElementById("message");
+
+            if (!linkInput) {
+                messageElement.textContent = "Please enter a link.";
+                return;
+            }
+
+            messageElement.textContent = "Processing...";
+            try {
+                const response = await fetch(`http://fi4.bot-hosting.net:22869/TestHubaddlink?link=${encodeURIComponent(linkInput)}`);
+                const data = await response.json();
+
+                if (data.rezult) {
+                    navigator.clipboard.writeText(data.rezult);
+                    messageElement.textContent = "Bypassed link copied to clipboard!";
+                } else {
+                    messageElement.textContent = "Error: Not supported or API is down.";
+                }
+            } catch (error) {
+                messageElement.textContent = "Error: API is down or not supported.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="https://raw.githubusercontent.com/Yeeeter30/Check.CC/refs/heads/main/GreenCheck%20(1).gif" alt="Check.CC Logo">
+        <h1>Bypass Link</h1>
+    </header>
+
+    <main>
+        <p>Enter a link below to bypass:</p>
+        <input type="text" id="link-input" placeholder="Enter link here">
+        <button class="bypass-button" onclick="bypassLink()">Bypass</button>
+        <div id="message" class="message"></div>
+    </main>
+</body>
+</html>
