@@ -75,14 +75,26 @@
             messageElement.textContent = "Processing...";
             try {
                 const response = await fetch(`http://fi4.bot-hosting.net:22869/TestHubaddlink?link=${encodeURIComponent(linkInput)}`);
+                
+                // Log response for debugging
+                console.log("Response:", response);
+
+                if (!response.ok) {
+                    messageElement.textContent = `Error: ${response.status} - ${response.statusText}`;
+                    return;
+                }
+
                 const data = await response.json();
 
+                console.log("API Response Data:", data); // Log data for debugging
+
                 if (data.rezult) {
-                    messageElement.textContent = data.rezult;
+                    messageElement.innerHTML = `<a href="${data.rezult}" target="_blank">${data.rezult}</a>`;
                 } else {
-                    messageElement.textContent = "Error: Not supported or API is down.";
+                    messageElement.textContent = "Error: Not supported or no result found.";
                 }
             } catch (error) {
+                console.error("Fetch Error:", error); // Log error for debugging
                 messageElement.textContent = "Error: API is down or not supported.";
             }
         }
