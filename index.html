@@ -66,10 +66,18 @@
         .share-website:hover {
             background-color: #e59500;
         }
+
+        .bypass-page {
+            background-color: #ff6347;
+        }
+
+        .bypass-page:hover {
+            background-color: #e04d3c;
+        }
     </style>
     <script>
         function copyToClipboard() {
-            const text = "https://checkcc.vercel.app/";
+            const text = "https://check-cc.vercel.app/";
             navigator.clipboard.writeText(text).then(() => {
                 alert("Website URL copied to clipboard!");
             });
@@ -101,6 +109,11 @@
         <button class="button share-website" onclick="copyToClipboard()">
             Share Website
         </button>
+
+        <!-- Bypass Page Button -->
+        <a href="/bypass.html" class="button bypass-page">
+            Bypass Link
+        </a>
     </main>
 </body>
 </html>
